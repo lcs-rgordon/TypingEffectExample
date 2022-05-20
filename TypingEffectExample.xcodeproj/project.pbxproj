@@ -11,6 +11,8 @@
 		81466D8B2837E07C00876758 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81466D8A2837E07C00876758 /* ContentView.swift */; };
 		81466D8D2837E07F00876758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81466D8C2837E07F00876758 /* Assets.xcassets */; };
 		81466D902837E07F00876758 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81466D8F2837E07F00876758 /* Preview Assets.xcassets */; };
+		81466D9D2837E1FC00876758 /* kongtext.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81466D9B2837E1FC00876758 /* kongtext.ttf */; };
+		81466DA12837E20E00876758 /* ARCADECLASSIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 81466D9F2837E20E00876758 /* ARCADECLASSIC.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,11 @@
 		81466D8A2837E07C00876758 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81466D8C2837E07F00876758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81466D8F2837E07F00876758 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		81466D9A2837E1FC00876758 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		81466D9B2837E1FC00876758 /* kongtext.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kongtext.ttf; sourceTree = "<group>"; };
+		81466D9E2837E20E00876758 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		81466D9F2837E20E00876758 /* ARCADECLASSIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARCADECLASSIC.TTF; sourceTree = "<group>"; };
+		81466DA22837E23100876758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +58,10 @@
 		81466D872837E07C00876758 /* TypingEffectExample */ = {
 			isa = PBXGroup;
 			children = (
+				81466DA22837E23100876758 /* Info.plist */,
 				81466D882837E07C00876758 /* TypingEffectExampleApp.swift */,
-				81466D8A2837E07C00876758 /* ContentView.swift */,
+				81466D972837E1D300876758 /* Fonts */,
+				81466D962837E1CC00876758 /* Views */,
 				81466D8C2837E07F00876758 /* Assets.xcassets */,
 				81466D8E2837E07F00876758 /* Preview Content */,
 			);
@@ -65,6 +74,41 @@
 				81466D8F2837E07F00876758 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		81466D962837E1CC00876758 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81466D8A2837E07C00876758 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81466D972837E1D300876758 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				81466D992837E1F400876758 /* KongText */,
+				81466D982837E1E900876758 /* ArcadeClassic */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		81466D982837E1E900876758 /* ArcadeClassic */ = {
+			isa = PBXGroup;
+			children = (
+				81466D9F2837E20E00876758 /* ARCADECLASSIC.TTF */,
+				81466D9E2837E20E00876758 /* license.txt */,
+			);
+			path = ArcadeClassic;
+			sourceTree = "<group>";
+		};
+		81466D992837E1F400876758 /* KongText */ = {
+			isa = PBXGroup;
+			children = (
+				81466D9B2837E1FC00876758 /* kongtext.ttf */,
+				81466D9A2837E1FC00876758 /* license.txt */,
+			);
+			path = KongText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +169,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81466D9D2837E1FC00876758 /* kongtext.ttf in Resources */,
+				81466DA12837E20E00876758 /* ARCADECLASSIC.TTF in Resources */,
 				81466D902837E07F00876758 /* Preview Assets.xcassets in Resources */,
 				81466D8D2837E07F00876758 /* Assets.xcassets in Resources */,
 			);
@@ -269,6 +315,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TypingEffectExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TypingEffectExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TypingEffectExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TypingEffectExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

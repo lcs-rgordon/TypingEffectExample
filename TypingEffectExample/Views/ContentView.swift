@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// ADAPTED FROM:
+// Typing effect adapated from:
 // https://medium.com/@cboynton/achieving-a-type-on-text-effect-in-swift-6934b683d1e9
 struct ContentView: View {
     
@@ -17,6 +17,11 @@ struct ContentView: View {
     // MARK: Computed properties
     var body: some View {
         Text(message)
+            // To learn how to add custom fonts, see:
+            // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
+            // NOTE: Be sure to remove license.txt files from the list of files that are copied into the app bundle.
+            //       Multiple files with the same name will create a compile time error.
+            .font(Font.custom("kongtext", size: 24))
             .padding()
     }
 }
@@ -24,5 +29,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            
     }
 }
