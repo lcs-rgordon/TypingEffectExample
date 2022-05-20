@@ -13,6 +13,7 @@
 		81466D902837E07F00876758 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81466D8F2837E07F00876758 /* Preview Assets.xcassets */; };
 		81466D9D2837E1FC00876758 /* kongtext.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81466D9B2837E1FC00876758 /* kongtext.ttf */; };
 		81466DA12837E20E00876758 /* ARCADECLASSIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 81466D9F2837E20E00876758 /* ARCADECLASSIC.TTF */; };
+		81466DA52837F90C00876758 /* TypeOnViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81466DA42837F90C00876758 /* TypeOnViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		81466D9E2837E20E00876758 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		81466D9F2837E20E00876758 /* ARCADECLASSIC.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARCADECLASSIC.TTF; sourceTree = "<group>"; };
 		81466DA22837E23100876758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		81466DA42837F90C00876758 /* TypeOnViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOnViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				81466D882837E07C00876758 /* TypingEffectExampleApp.swift */,
 				81466D972837E1D300876758 /* Fonts */,
+				81466DA32837F4BE00876758 /* ViewModifiers */,
 				81466D962837E1CC00876758 /* Views */,
 				81466D8C2837E07F00876758 /* Assets.xcassets */,
 				81466DA22837E23100876758 /* Info.plist */,
@@ -109,6 +112,14 @@
 				81466D9A2837E1FC00876758 /* license.txt */,
 			);
 			path = KongText;
+			sourceTree = "<group>";
+		};
+		81466DA32837F4BE00876758 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				81466DA42837F90C00876758 /* TypeOnViewModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 			files = (
 				81466D8B2837E07C00876758 /* ContentView.swift in Sources */,
 				81466D892837E07C00876758 /* TypingEffectExampleApp.swift in Sources */,
+				81466DA52837F90C00876758 /* TypeOnViewModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
