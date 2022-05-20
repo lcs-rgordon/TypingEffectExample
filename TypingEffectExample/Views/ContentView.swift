@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Stored properties
-    let messageToType = "Come with me, and see what has been foretold..."
+    let messageToType = "Come with me###, and see what has been foretold#.#.#."
     
     // MARK: Computed properties
     var body: some View {

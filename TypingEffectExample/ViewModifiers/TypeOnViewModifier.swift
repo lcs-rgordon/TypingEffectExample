@@ -86,8 +86,11 @@ struct TypeOnViewModifier: ViewModifier {
                     // Only animate when the timing counter is a multiple of the speed
                     if timingCounter.isMultiple(of: speed.rawValue) {
 
-                        // Add one more letter to the text view
-                        textToShow.append(characterArray[characterIndex])
+                        // Only animate letters (pause when hash sign found)
+                        if characterArray[characterIndex] != "#" {
+                            // Add one more letter to the text view
+                            textToShow.append(characterArray[characterIndex])
+                        }
                         
                         // Advance to next letter
                         characterIndex += 1
