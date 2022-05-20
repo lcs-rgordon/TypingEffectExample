@@ -33,6 +33,7 @@ struct TypeOnViewModifier: ViewModifier {
     
     let message: String
     var characterArray = Array("")
+    @State var count = 0
     
     // Controls speed of typing effecct
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
@@ -49,7 +50,11 @@ struct TypeOnViewModifier: ViewModifier {
         content
             .onReceive(timer) { input in
                 print("Hello world!")
-                timer.upstream.connect().cancel()
+                count += 1
+                if count == 10 {
+                    print("All done.")
+                    timer.upstream.connect().cancel()
+                }
             }
     }
 }
