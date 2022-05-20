@@ -47,7 +47,7 @@ struct TypeOnViewModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content
+        Text("\(count)")
             .onReceive(timer) { input in
                 print("Hello world!")
                 count += 1
