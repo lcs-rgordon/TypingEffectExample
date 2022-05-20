@@ -37,7 +37,7 @@ struct TypeOnViewModifier: ViewModifier {
     @State var textToShow = ""
     
     // Controls speed of typing effecct
-    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
     
     // Runs once when view modifier is applied
     init(message: String) {
@@ -48,37 +48,38 @@ struct TypeOnViewModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        HStack {
-            Text(textToShow)
-                .onReceive(timer) { input in
-                                        
-                    // Skip spaces
-                    while characterArray[characterIndex] == " " {
-                        textToShow.append(" ")
-                        characterIndex += 1
-
-                        // Stop the timer if at the end of the message
-                        if characterIndex == characterArray.count {
-                            timer.upstream.connect().cancel()
-                            return
-                        }
-
-                    }
-                    
-                    // Add one more letter to the text view
-                    textToShow.append(characterArray[characterIndex])
-                    
-                    // Advance to next letter
+        Text(textToShow)
+            .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, alignment: .leading)
+            .border(.red)
+            .multilineTextAlignment(.leading)
+            .onReceive(timer) { input in
+                
+                // Skip spaces
+                while characterArray[characterIndex] == " " {
+                    textToShow.append(" ")
                     characterIndex += 1
                     
                     // Stop the timer if at the end of the message
                     if characterIndex == characterArray.count {
                         timer.upstream.connect().cancel()
+                        return
                     }
+                    
                 }
-            
-            Spacer()
-        }
+                
+                // Add one more letter to the text view
+                textToShow.append(characterArray[characterIndex])
+                
+                // Advance to next letter
+                characterIndex += 1
+                
+                // Stop the timer if at the end of the message
+                if characterIndex == characterArray.count {
+                    timer.upstream.connect().cancel()
+                }
+            }
+        
+        
     }
 }
 
