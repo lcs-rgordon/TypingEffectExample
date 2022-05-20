@@ -12,16 +12,16 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Stored properties
-    let message = "Come with me, and see what has been foretold..."
+    let messageToType = "Come with me, and see what has been foretold..."
     
     // MARK: Computed properties
     var body: some View {
-        Text(message)
+        Text("")
             // To learn how to add custom fonts, see:
             // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
             // NOTE: Be sure to remove license.txt files from the list of files that are copied into the app bundle.
             //       Multiple files with the same name will create a compile time error.
-            .typeOn(message: "Bananas")
+            .typeOn(message: messageToType)
             .font(Font.custom("kongtext", size: 24))
             .padding()
     }
@@ -33,7 +33,8 @@ struct TypeOnViewModifier: ViewModifier {
     
     let message: String
     var characterArray = Array("")
-    @State var count = 0
+    @State var characterIndex = 0
+    @State var textToShow = ""
     
     // Controls speed of typing effecct
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
@@ -47,12 +48,17 @@ struct TypeOnViewModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        Text("\(count)")
+        Text(textToShow)
             .onReceive(timer) { input in
-                print("Hello world!")
-                count += 1
-                if count == 10 {
-                    print("All done.")
+                
+                // Add one more letter to the text view
+                textToShow.append(characterArray[characterIndex])
+                
+                // Advance to next letter
+                characterIndex += 1
+                
+                // Stop the timer if at the end of the message
+                if characterIndex == characterArray.count {
                     timer.upstream.connect().cancel()
                 }
             }
