@@ -21,9 +21,9 @@ struct ContentView: View {
             // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
             // NOTE: Be sure to remove license.txt files from the list of files that are copied into the app bundle.
             //       Multiple files with the same name will create a compile time error.
+            .typeOn(message: "Bananas")
             .font(Font.custom("kongtext", size: 24))
             .padding()
-            .typeOn(message: "Bananas")
     }
 }
 
