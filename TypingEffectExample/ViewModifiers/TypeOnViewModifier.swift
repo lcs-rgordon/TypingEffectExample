@@ -83,7 +83,7 @@ struct TypeOnViewModifier: ViewModifier {
                     // Increment timing counter
                     timingCounter += 1
 
-                    // Only animate when the typing counter is a multiple of the speed
+                    // Only animate when the timing counter is a multiple of the speed
                     if timingCounter.isMultiple(of: speed.rawValue) {
 
                         // Add one more letter to the text view
