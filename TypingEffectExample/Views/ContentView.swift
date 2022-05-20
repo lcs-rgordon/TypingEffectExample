@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// Typing effect adapated from:
+// Typing effect adapted from:
 // https://medium.com/@cboynton/achieving-a-type-on-text-effect-in-swift-6934b683d1e9
 struct ContentView: View {
     
@@ -23,6 +23,40 @@ struct ContentView: View {
             //       Multiple files with the same name will create a compile time error.
             .font(Font.custom("kongtext", size: 24))
             .padding()
+            .typeOn(message: "Bananas")
+    }
+}
+
+// How to make a custom view modifier described here:
+// https://useyourloaf.com/blog/swiftui-custom-view-modifiers/
+struct TypeOnViewModifier: ViewModifier {
+    
+    let message: String
+    var characterArray = Array("")
+    
+    // Controls speed of typing effecct
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
+    // Runs once when view modifier is applied
+    init(message: String) {
+        self.message = message
+        
+        // Set the array of characters
+        characterArray = Array(message)
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .onReceive(timer) { input in
+                print("Hello world!")
+                timer.upstream.connect().cancel()
+            }
+    }
+}
+
+extension View {
+    func typeOn(message: String) -> some View {
+        self.modifier(TypeOnViewModifier(message: message))
     }
 }
 

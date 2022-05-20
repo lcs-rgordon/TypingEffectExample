@@ -58,11 +58,11 @@
 		81466D872837E07C00876758 /* TypingEffectExample */ = {
 			isa = PBXGroup;
 			children = (
-				81466DA22837E23100876758 /* Info.plist */,
 				81466D882837E07C00876758 /* TypingEffectExampleApp.swift */,
 				81466D972837E1D300876758 /* Fonts */,
 				81466D962837E1CC00876758 /* Views */,
 				81466D8C2837E07F00876758 /* Assets.xcassets */,
+				81466DA22837E23100876758 /* Info.plist */,
 				81466D8E2837E07F00876758 /* Preview Content */,
 			);
 			path = TypingEffectExample;
