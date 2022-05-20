@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+// Control what typeface is used
+enum TypeFace: String {
+    case kongText = "kongtext"
+    case pixelEmulator = "PixelEmulator"
+}
+
 // Control typing speed
 enum TypingSpeed: Int {
     case fast = 1
@@ -23,6 +29,12 @@ struct TypeOnViewModifier: ViewModifier {
     
     // The message to be "typed" on to the screen
     let message: String
+    
+    // What typeface to use
+    let font: TypeFace
+    
+    // How big the type should be
+    let scale: Double
     
     // How fast to type the text
     let speed: TypingSpeed
@@ -41,14 +53,16 @@ struct TypeOnViewModifier: ViewModifier {
     
     // Extra spaces added to force text view to be as wide
     // as possible to avoid wrapping issues when text is revealed
-    // TODO: Fix this hack; the number of spaces is a guess and won't work for all device sizes
-    @State var textToShow = "                                                                "
+    // TODO: Fix this hack; the number of spaces is a guess and probably won't work for all device sizes
+    @State var textToShow = "                                                                                                                                        "
     
     // Drives the reveal of each character
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     // Runs once when view modifier is applied
-    init(message: String, speed: TypingSpeed, debug: Bool) {
+    init(message: String, font: TypeFace, scale: Double, speed: TypingSpeed, debug: Bool) {
+        
+        // Set the message
         self.message = message
         
         // Set the array of characters
@@ -57,6 +71,12 @@ struct TypeOnViewModifier: ViewModifier {
         // Whether to show the frame of the text view
         self.debug = debug
         
+        // What typeface to use
+        self.font = font
+        
+        // What size to make the text
+        self.scale = scale
+        
         // The speed at which text should be typed
         self.speed = speed
     }
@@ -64,6 +84,11 @@ struct TypeOnViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         HStack {
             Text(textToShow)
+                // To learn how to add custom fonts, see:
+                // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
+                // NOTE: Be sure to remove license.txt files for fonts from the list of files that are copied into the app bundle.
+                //       Multiple files with the same name will create a compile time error.
+                .font(Font.custom(font.rawValue, size: Double(24) * scale))
                 .border(.red, width: debug ? 1.0 : 0.0)
                 .onReceive(timer) { input in
                     
@@ -112,7 +137,7 @@ struct TypeOnViewModifier: ViewModifier {
 }
 
 extension View {
-    func typeOn(message: String, speed: TypingSpeed = .normal, debugLayout: Bool = false) -> some View {
-        self.modifier(TypeOnViewModifier(message: message, speed: speed, debug: debugLayout))
+    func typeOn(message: String, font: TypeFace = .kongText, scale: Double = 1.0, speed: TypingSpeed = .normal, debugLayout: Bool = false) -> some View {
+        self.modifier(TypeOnViewModifier(message: message, font: font, scale: scale, speed: speed, debug: debugLayout))
     }
 }
