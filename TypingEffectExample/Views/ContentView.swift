@@ -17,10 +17,10 @@ struct ContentView: View {
     // MARK: Computed properties
     var body: some View {
         Text("")
-            // To learn how to add custom fonts, see:
-            // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
-            // NOTE: Be sure to remove license.txt files from the list of files that are copied into the app bundle.
-            //       Multiple files with the same name will create a compile time error.
+        // To learn how to add custom fonts, see:
+        // https://betterprogramming.pub/swiftui-basics-importing-custom-fonts-b6396d17424d
+        // NOTE: Be sure to remove license.txt files from the list of files that are copied into the app bundle.
+        //       Multiple files with the same name will create a compile time error.
             .typeOn(message: messageToType)
             .font(Font.custom("kongtext", size: 24))
             .padding()
@@ -48,20 +48,24 @@ struct TypeOnViewModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        Text(textToShow)
-            .onReceive(timer) { input in
-                
-                // Add one more letter to the text view
-                textToShow.append(characterArray[characterIndex])
-                
-                // Advance to next letter
-                characterIndex += 1
-                
-                // Stop the timer if at the end of the message
-                if characterIndex == characterArray.count {
-                    timer.upstream.connect().cancel()
+        HStack {
+            Text(textToShow)
+                .onReceive(timer) { input in
+                    
+                    // Add one more letter to the text view
+                    textToShow.append(characterArray[characterIndex])
+                    
+                    // Advance to next letter
+                    characterIndex += 1
+                    
+                    // Stop the timer if at the end of the message
+                    if characterIndex == characterArray.count {
+                        timer.upstream.connect().cancel()
+                    }
                 }
-            }
+            
+            Spacer()
+        }
     }
 }
 
@@ -74,6 +78,6 @@ extension View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            
+        
     }
 }
